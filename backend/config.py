@@ -7,10 +7,17 @@ INSTANCE_DIR = os.path.join(BASE_DIR, "instances")
 class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY", "tma-dev-secret-key")
 
-    # Database: Use DATABASE_URL if available (Render Postgres / Supabase / Neon etc.), otherwise SQLite
-    _db_url = os.environ.get("DATABASE_URL")
-    if _db_url and _db_url.startswith("postgres://"):
-        _db_url = _db_url.replace("postgres://", "postgresql://", 1)
+    # Database: Use DATABASE_URL if available and valid (Postgres/MySQL/SQLite), otherwise SQLite
+    _raw_db_url = os.environ.get("DATABASE_URL", "").strip()
+    _db_url = None
+    if _raw_db_url:
+        if _raw_db_url.startswith("postgres://"):
+            _db_url = _raw_db_url.replace("postgres://", "postgresql://", 1)
+        elif _raw_db_url.startswith(("postgresql://", "sqlite:///", "mysql://", "mariadb://")):
+            _db_url = _raw_db_url
+        else:
+            # An HTTP/HTTPS URL was accidentally passed as DATABASE_URL; ignore and fall back to SQLite
+            print(f"[TMA Config] Warning: DATABASE_URL does not start with a valid database scheme (received: {_raw_db_url[:12]}...). Falling back to SQLite.")
 
     SQLALCHEMY_DATABASE_URI = _db_url or ("sqlite:///" + os.path.join(INSTANCE_DIR, "tma.db"))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
