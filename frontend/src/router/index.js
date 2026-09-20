@@ -26,6 +26,7 @@ import UserMyBookings from '../components/user/UserMyBookings.vue'
 import UserTrekkingHistory from '../components/user/UserTrekkingHistory.vue'
 import UserProfile from '../components/user/UserProfile.vue'
 import AIAssistant from '../components/user/AIAssistant.vue'
+import TrekTracker from '../components/user/TrekTracker.vue'
 
 const routes = [
   { path: '/', redirect: '/login' },
@@ -54,6 +55,7 @@ const routes = [
   { path: '/user/history', name: 'user-history', component: UserTrekkingHistory, meta: { role: 'user' } },
   { path: '/user/profile', name: 'user-profile', component: UserProfile, meta: { role: 'user' } },
   { path: '/user/ai-assistant', name: 'user-ai-assistant', component: AIAssistant, meta: { role: 'user' } },
+  { path: '/user/trek-tracker/:id', name: 'user-trek-tracker', component: TrekTracker, meta: { role: 'user' } },
 ]
 
 const router = createRouter({
