@@ -106,6 +106,8 @@
       </div>
     </div>
 
+    <BookItinerary />
+
     <h4>Available Treks</h4>
     <div class="grid-3" style="margin-bottom:20px;">
       <TrekCard v-for="t in data.available_treks" :key="t.id" :trek="t">
@@ -141,6 +143,7 @@ import AppLayout from '../shared/AppLayout.vue'
 import TrekCard from '../shared/TrekCard.vue'
 import api from '../../services/api'
 import { authState } from '../../services/auth'
+import BookItinerary from './BookItinerary.vue'
 
 const data = ref({})
 const userName = computed(() => authState.user?.name)
