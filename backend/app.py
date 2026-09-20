@@ -24,7 +24,9 @@ def create_app():
     CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
     from routes import api
+    from ai_routes import ai_api
     app.register_blueprint(api)
+    app.register_blueprint(ai_api)
 
     @jwt.unauthorized_loader
     def unauthorized(reason):

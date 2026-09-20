@@ -25,6 +25,7 @@ import UserBrowseTreks from '../components/user/UserBrowseTreks.vue'
 import UserMyBookings from '../components/user/UserMyBookings.vue'
 import UserTrekkingHistory from '../components/user/UserTrekkingHistory.vue'
 import UserProfile from '../components/user/UserProfile.vue'
+import AIAssistant from '../components/user/AIAssistant.vue'
 
 const routes = [
   { path: '/', redirect: '/login' },
@@ -52,6 +53,7 @@ const routes = [
   { path: '/user/my-bookings', name: 'user-my-bookings', component: UserMyBookings, meta: { role: 'user' } },
   { path: '/user/history', name: 'user-history', component: UserTrekkingHistory, meta: { role: 'user' } },
   { path: '/user/profile', name: 'user-profile', component: UserProfile, meta: { role: 'user' } },
+  { path: '/user/ai-assistant', name: 'user-ai-assistant', component: AIAssistant, meta: { role: 'user' } },
 ]
 
 const router = createRouter({

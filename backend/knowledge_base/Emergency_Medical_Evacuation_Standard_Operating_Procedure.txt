@@ -1,0 +1,37 @@
+================================================================================
+HIMALAYAN EMERGENCY MEDICAL EVACUATION & SEARCH RESCUE SOP
+Document ID: DOC-EMERG-004 | Category: Emergency & Rescue | Version 3.1
+================================================================================
+
+SECTION 1: INCIDENT TRIAGE & INITIAL ASSESSMENT
+In the event of acute trauma, severe HAPE/HACE, hypothermia, or avalanche incident:
+1. Scene Safety: Ensure the rescue area is safe from falling rocks, snow avalanches, or lightning.
+2. Primary ABCDE Assessment: Airway, Breathing, Circulation, Disability (neurological), Exposure (hypothermia prevention).
+3. Immediate Vital Signs: Pulse oximetry (SpO2), heart rate, blood pressure, core body temperature, pupillary response.
+
+SECTION 2: HELICOPTER EVACUATION PROTOCOL
+When terrestrial stretcher evacuation is inadequate or too slow:
+1. Landing Zone (LZ) Selection:
+- Minimum flat clearance of 25m x 25m free from boulders, overhead power wires, and steep cliffs.
+- Mark the center with high-visibility bright orange or yellow tarp weighted down with rocks.
+- Determine wind direction using a smoke flare or clothing streamer.
+
+2. Communication & Distress Transmission:
+- Transmit precise GPS coordinates (WGS84 format: Latitude, Longitude, Elevation in meters).
+- Provide patient status code (Triage Red: Immediate life threat; Yellow: Urgent; Green: Non-urgent).
+- Relays to State Disaster Response Force (SDRF), Indo-Tibetan Border Police (ITBP), Army Aviation, or private civil aviation providers.
+
+3. Helicopter Landing Safety Rules:
+- Approach helicopter only when signaled by pilot or flight engineer.
+- Always approach from downhill front quadrant (10 o'clock to 2 o'clock). NEVER walk near the tail rotor.
+- Secure all loose gear, tarps, and hats to prevent rotor downdraft ingestion.
+
+SECTION 3: FIELD MANAGEMENT OF SEVERE HYPOTHERMIA
+- Stage 1 (Mild, 35-32°C): Shivering, alert, fast pulse. Rewarm with dry layers and warm caloric drinks.
+- Stage 2 (Moderate, 32-28°C): Violent shivering subsides, apathy, confusion. Handle gently to prevent cardiac arrhythmias (ventricular fibrillation).
+- Stage 3 (Severe, <28°C): Unconscious, shallow breathing, impalpable pulse.
+Action Protocol:
+1. Strip all wet clothing immediately inside a 4-season storm tent.
+2. Place casualty in double sleeping bags atop dual insulated closed-cell foam sleeping pads.
+3. Apply active chemical heat packs wrapped in cloth to arterial convergence zones: neck, axillae (armpits), and groin.
+4. Administer warmed humidified supplemental oxygen if available. Never vigorously rub cold extremities.

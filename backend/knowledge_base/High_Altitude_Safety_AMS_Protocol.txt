@@ -1,0 +1,59 @@
+================================================================================
+HIGH ALTITUDE ACCLIMATIZATION, AMS PREVENTION & EMERGENCY PROTOCOLS MANUAL
+Document ID: DOC-MED-001 | Category: High Altitude Safety & Medical | Version 3.4
+================================================================================
+
+SECTION 1: THE PHYSIOLOGY OF HIGH ALTITUDE
+At altitudes exceeding 2,500 meters (8,200 feet), atmospheric pressure drops significantly. While the fraction of oxygen in the atmosphere remains constant at approximately 21%, the reduced barometric pressure results in fewer oxygen molecules per breath (reduced partial pressure of oxygen). This arterial hypoxia triggers hyperventilation, increased heart rate, and shifts in blood acid-base balance.
+
+SECTION 2: ACCLIMATIZATION GUIDELINES & ASCENT VELOCITY
+1. Golden Rule of Mountaineering: "Climb high, sleep low." Ascend during the daytime to gain elevation and stimulate red blood cell production, but descend to lower elevations to sleep.
+2. Sleeping Elevation Limit: Above 3,000 meters (10,000 feet), the increase in sleeping altitude should never exceed 300 to 500 meters (1,000 to 1,600 feet) per 24-hour cycle.
+3. Acclimatization Rest Days: Mandatory rest/acclimatization days must be scheduled every 3 to 4 days or after every 1,000 meters of cumulative elevation gain.
+4. Hydration Standards: Trekkers must consume 3.5 to 4.5 liters of clean water or electrolyte fluids daily. Cold, dry alpine air drastically accelerates moisture loss through respiration.
+
+SECTION 3: ACUTE MOUNTAIN SICKNESS (AMS) DIAGNOSIS & FIELD TRIAGE
+Early Symptoms:
+- Persistent throbbing frontal headache unresponsive to simple paracetamol
+- Nausea, vomiting, and loss of appetite
+- Dizziness, lightheadedness, and lethargy
+- Disturbed sleep patterns with periodic breathing (Cheyne-Stokes respiration)
+
+Diagnostic Tools:
+Trek leaders must evaluate the Lake Louise Score (LLS) twice daily (morning and evening).
+- LLS 1-3: Mild AMS. Rest, halt ascent, hydrate, administer mild analgesics.
+- LLS 4-6: Moderate AMS. Strict rest, administer Diamox, prepare for immediate descent.
+- LLS > 6: Severe AMS. Immediate descent of at least 500-1000m.
+
+SECTION 4: HIGH ALTITUDE PULMONARY EDEMA (HAPE)
+HAPE is a life-threatening accumulation of fluid in the pulmonary alveoli.
+Clinical Symptoms:
+- Extreme dyspnea (shortness of breath) at rest
+- Persistent dry cough progressing to wet cough with pink, frothy sputum
+- Cyanosis (bluish tint in lips, tongue, and nail beds)
+- Gurgling or rattling sounds in the chest
+- Severe tachycardia and tachypnea
+
+Emergency Treatment Protocol for HAPE:
+1. Immediate descent of at least 1,000 meters is the only definitive curative measure.
+2. Supplemental high-flow oxygen at 4-6 liters/min.
+3. If descent is delayed due to weather, place patient in a Portable Hyperbaric Chamber (Gamow Bag) pressurized to 2 psi.
+4. Nifedipine (sustained release 20-30mg every 12 hours) to lower pulmonary artery pressure.
+
+SECTION 5: HIGH ALTITUDE CEREBRAL EDEMA (HACE)
+HACE is life-threatening brain swelling resulting from cerebral vasodilation and capillary leakage.
+Clinical Symptoms:
+- Ataxia: Inability to walk a straight line (heel-to-toe tandem gait test failure)
+- Confusion, severe irrational behavioral changes, and memory loss
+- Stupor, progressive loss of consciousness, hallucinations, and coma
+
+Emergency Treatment Protocol for HACE:
+1. Immediate descent must be initiated without delay, even at night.
+2. Dexamethasone 8mg loading dose orally or intramuscularly, followed by 4mg every 6 hours.
+3. Supplemental high-flow oxygen and hyperbaric chamber pressurization.
+
+SECTION 6: PROPHYLAXIS WITH DIAMOX (ACETAZOLAMIDE)
+- Mechanism: Carbonic anhydrase inhibitor that forces bicarbonate excretion by the kidneys, acidifying the blood and stimulating respiratory ventilation.
+- Dosage: 125mg to 250mg orally twice daily, starting 24 hours prior to ascending above 2,800m and continuing until descending below 2,800m.
+- Contraindications: Strict absolute contraindication in individuals with known sulfonamide (sulfa) allergies.
+- Common Side Effects: Benign tingling (paresthesia) in fingers and toes, increased urination, altered taste of carbonated beverages.

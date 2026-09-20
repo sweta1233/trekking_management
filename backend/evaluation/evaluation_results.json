@@ -1,0 +1,339 @@
+{
+  "timestamp": "2026-09-20 06:32:12",
+  "total_benchmark_queries": 20,
+  "aggregate_metrics": {
+    "overall_rag_score": 0.0159,
+    "faithfulness": 0.0,
+    "answer_relevance": 0.0476,
+    "context_precision": 0.0,
+    "context_recall": 0.0,
+    "average_latency_ms": 0.24
+  },
+  "category_breakdown": {
+    "High Altitude Safety": {
+      "total_queries": 4,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "Gear & Packing": {
+      "total_queries": 3,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0556,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "Trek Routes": {
+      "total_queries": 5,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0905,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "Environmental Conservation": {
+      "total_queries": 2,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "Medical & First Aid": {
+      "total_queries": 1,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.1667,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "Hydration & Nutrition": {
+      "total_queries": 1,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "Emergency & Rescue": {
+      "total_queries": 2,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0833,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "Fitness & Training": {
+      "total_queries": 1,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    "Weather & Meteorology": {
+      "total_queries": 1,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  "detailed_results": [
+    {
+      "id": "rag_bench_001",
+      "category": "High Altitude Safety",
+      "question": "What are the earliest warning signs of Acute Mountain Sickness (AMS) and what is the immediate protocol?",
+      "latency_ms": 0.9,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_002",
+      "category": "High Altitude Safety",
+      "question": "What is the recommended acclimatization ascent rate above 3000 meters?",
+      "latency_ms": 0.22,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_003",
+      "category": "High Altitude Safety",
+      "question": "What are the life-threatening forms of altitude sickness, and how are HAPE and HACE distinguished?",
+      "latency_ms": 0.34,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_004",
+      "category": "Gear & Packing",
+      "question": "What is the 3-layer clothing system for sub-zero Himalayan treks?",
+      "latency_ms": 0.23,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_005",
+      "category": "Gear & Packing",
+      "question": "What kind of footwear and traction gear are mandatory for winter treks like Kedarkantha or Chadar?",
+      "latency_ms": 0.27,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.1667,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_006",
+      "category": "Trek Routes",
+      "question": "What makes the Kedarkantha trek famous and what is its summit altitude?",
+      "latency_ms": 0.2,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.1667,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_007",
+      "category": "Trek Routes",
+      "question": "What is the best season and permit requirement for the Valley of Flowers trek?",
+      "latency_ms": 0.17,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_008",
+      "category": "Trek Routes",
+      "question": "Why is the Hampta Pass trek unique in terms of landscape crossover?",
+      "latency_ms": 0.22,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_009",
+      "category": "Environmental Conservation",
+      "question": "What are the core Leave No Trace (LNT) principles on high altitude trails?",
+      "latency_ms": 0.16,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_010",
+      "category": "Medical & First Aid",
+      "question": "What is the usage and precaution for Diamox (Acetazolamide) in high-altitude trekking?",
+      "latency_ms": 0.17,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.1667,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_011",
+      "category": "Hydration & Nutrition",
+      "question": "How much water should a trekker drink daily at altitudes above 3,500m and why?",
+      "latency_ms": 0.17,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_012",
+      "category": "Emergency & Rescue",
+      "question": "What are the protocol steps for emergency helicopter evacuation in the Indian Himalayas?",
+      "latency_ms": 0.25,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.1667,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_013",
+      "category": "Trek Routes",
+      "question": "What is the Chadar Frozen River trek and what are the primary hazards?",
+      "latency_ms": 0.3,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.2857,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_014",
+      "category": "Fitness & Training",
+      "question": "What cardiovascular baseline is recommended before attempting a 4,500m+ Himalayan trek?",
+      "latency_ms": 0.19,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_015",
+      "category": "Weather & Meteorology",
+      "question": "How does barometric pressure drop affect oxygen availability at 4,000 meters?",
+      "latency_ms": 0.17,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_016",
+      "category": "Trek Routes",
+      "question": "What is the historical significance and altitude of Har Ki Dun trek?",
+      "latency_ms": 0.15,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_017",
+      "category": "Gear & Packing",
+      "question": "Why is UV eye protection critical at high alpine elevations?",
+      "latency_ms": 0.16,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_018",
+      "category": "High Altitude Safety",
+      "question": "What daily diagnostic checks should a trek leader perform on participants?",
+      "latency_ms": 0.17,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_019",
+      "category": "Environmental Conservation",
+      "question": "What is the protocol for human waste management at alpine base camps?",
+      "latency_ms": 0.16,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    },
+    {
+      "id": "rag_bench_020",
+      "category": "Emergency & Rescue",
+      "question": "What are the symptoms and immediate field management of severe hypothermia?",
+      "latency_ms": 0.17,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_recall": 0.0,
+      "context_precision": 0.0,
+      "rag_triad_score": 0.0,
+      "citation_count": 4,
+      "has_citations": true
+    }
+  ]
+}

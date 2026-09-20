@@ -1,0 +1,142 @@
+[
+  {
+    "id": "rag_bench_001",
+    "category": "High Altitude Safety",
+    "question": "What are the earliest warning signs of Acute Mountain Sickness (AMS) and what is the immediate protocol?",
+    "ground_truth": "Earliest signs of AMS include persistent throbbing headache, nausea, loss of appetite, dizziness, fatigue, and insomnia. The immediate protocol is: 1) Stop ascent immediately and inform the trek leader. 2) Rest, hydrate with warm fluids (4L/day), and avoid exertion. 3) If symptoms persist or worsen over 4 hours, descend at least 500-1000m immediately. Never ascend with active AMS symptoms.",
+    "expected_keywords": ["headache", "nausea", "descend", "stop ascent", "hydrate", "oximeter"]
+  },
+  {
+    "id": "rag_bench_002",
+    "category": "High Altitude Safety",
+    "question": "What is the recommended acclimatization ascent rate above 3000 meters?",
+    "ground_truth": "Above 3,000m (10,000 ft), the maximum recommended sleeping elevation gain is 300 to 500 meters per 24-hour period, with an acclimatization rest day scheduled every 3-4 days (or every 1,000m gained). The golden rule is: 'Climb high, sleep low'.",
+    "expected_keywords": ["300", "500", "climb high sleep low", "rest day", "sleeping elevation"]
+  },
+  {
+    "id": "rag_bench_003",
+    "category": "High Altitude Safety",
+    "question": "What are the life-threatening forms of altitude sickness, and how are HAPE and HACE distinguished?",
+    "ground_truth": "HAPE (High Altitude Pulmonary Edema) is fluid in the lungs characterized by breathlessness at rest, persistent dry or pink-frothy cough, cyanosis, and gurgling chest sounds. HACE (High Altitude Cerebral Edema) is brain swelling characterized by ataxia (loss of physical coordination/drunk-like walk), severe confusion, altered consciousness, and hallucinations. Both require emergency descent, supplemental oxygen, and portable hyperbaric chamber (Gamow bag).",
+    "expected_keywords": ["hape", "hace", "pulmonary", "cerebral", "ataxia", "emergency descent", "oxygen"]
+  },
+  {
+    "id": "rag_bench_004",
+    "category": "Gear & Packing",
+    "question": "What is the 3-layer clothing system for sub-zero Himalayan treks?",
+    "ground_truth": "The 3-layer system consists of: 1) Base Layer: Moisture-wicking synthetic or Merino wool thermal top and bottoms (never cotton). 2) Mid Layer: Insulating fleece jacket and 700+ fill-power down jacket to trap body warmth. 3) Outer Shell: Windproof and waterproof breathable hard-shell jacket and pants (Gore-Tex or 10,000mm+ membrane) to block snow and gale winds.",
+    "expected_keywords": ["base layer", "mid layer", "outer shell", "moisture-wicking", "fleece", "down jacket", "gore-tex"]
+  },
+  {
+    "id": "rag_bench_005",
+    "category": "Gear & Packing",
+    "question": "What kind of footwear and traction gear are mandatory for winter treks like Kedarkantha or Chadar?",
+    "ground_truth": "Trekking boots with high ankle support, waterproof membrane (waterproof suede/leather), and deep Vibram rubber treads. For hard-packed snow and ice, microspikes/crampons and gaiters are mandatory to prevent snow from entering boots and preventing slips.",
+    "expected_keywords": ["ankle support", "waterproof", "microspikes", "crampons", "gaiters", "vibram"]
+  },
+  {
+    "id": "rag_bench_006",
+    "category": "Trek Routes",
+    "question": "What makes the Kedarkantha trek famous and what is its summit altitude?",
+    "ground_truth": "Kedarkantha in Uttarkashi (Uttarakhand) is renowned for its 360-degree panoramic summit views of peaks like Swargarohini, Black Peak, and Bandarpoonch, and beautiful campsite clearings like Juda Ka Talab. The summit altitude is 3,810 meters (12,500 ft).",
+    "expected_keywords": ["kedarkantha", "3810", "12500", "juda ka talab", "swargarohini", "bandarpoonch"]
+  },
+  {
+    "id": "rag_bench_007",
+    "category": "Trek Routes",
+    "question": "What is the best season and permit requirement for the Valley of Flowers trek?",
+    "ground_truth": "The best season is mid-July to early September during the monsoon when over 500 alpine flower species bloom. It is a UNESCO World Heritage site inside Nanda Devi Biosphere Reserve, requiring a daily entry permit from the Uttarakhand Forest Department at the Ghangaria checkpoint.",
+    "expected_keywords": ["july", "august", "september", "monsoon", "unesco", "ghangaria", "permit", "forest department"]
+  },
+  {
+    "id": "rag_bench_008",
+    "category": "Trek Routes",
+    "question": "Why is the Hampta Pass trek unique in terms of landscape crossover?",
+    "ground_truth": "Hampta Pass (4,270m) connects the lush green alpine valleys of Kullu and Manali with the stark, barren, high-altitude desert landscapes of Lahaul and Spiti Valley in Himachal Pradesh.",
+    "expected_keywords": ["hampta pass", "kullu", "manali", "lahaul", "spiti", "4270"]
+  },
+  {
+    "id": "rag_bench_009",
+    "category": "Environmental Conservation",
+    "question": "What are the core Leave No Trace (LNT) principles on high altitude trails?",
+    "ground_truth": "The 7 LNT principles are: 1) Plan ahead and prepare. 2) Travel and camp on durable surfaces. 3) Dispose of waste properly (pack it in, pack it out, bury human waste 6-8 inches deep at least 60m from water sources). 4) Leave what you find. 5) Minimize campfire impacts. 6) Respect wildlife. 7) Be considerate of other trekkers.",
+    "expected_keywords": ["leave no trace", "pack it in pack it out", "durable surfaces", "dispose waste", "water sources"]
+  },
+  {
+    "id": "rag_bench_010",
+    "category": "Medical & First Aid",
+    "question": "What is the usage and precaution for Diamox (Acetazolamide) in high-altitude trekking?",
+    "ground_truth": "Diamox (125mg to 250mg twice daily) accelerates acclimatization by stimulating bicarbonate excretion through kidneys, acidifying the blood and triggering increased respiratory ventilation. It is a sulfa-based drug, so it is strictly contraindicated in individuals with sulfa allergies. It is not a cure for established severe AMS/HAPE/HACE.",
+    "expected_keywords": ["diamox", "acetazolamide", "sulfa", "acclimatization", "ventilation", "contraindicated"]
+  },
+  {
+    "id": "rag_bench_011",
+    "category": "Hydration & Nutrition",
+    "question": "How much water should a trekker drink daily at altitudes above 3,500m and why?",
+    "ground_truth": "Trekkers should consume 3.5 to 4.5 liters of fluids daily. At high altitudes, rapid respiration in cold, dry air causes heavy respiratory moisture loss, and kidneys excrete more water during natural acclimatization. Dehydration severely mimics and exacerbates altitude sickness symptoms.",
+    "expected_keywords": ["4 liters", "dehydration", "respiration", "electrolytes", "acclimatization"]
+  },
+  {
+    "id": "rag_bench_012",
+    "category": "Emergency & Rescue",
+    "question": "What are the protocol steps for emergency helicopter evacuation in the Indian Himalayas?",
+    "ground_truth": "Emergency heli-rescue requires: 1) Securing a flat, wind-sheltered landing LZ marked with high-visibility bright tarps. 2) Relaying exact GPS coordinates, patient triage condition, and local cloud ceiling to base camp. 3) Coordinating military / state disaster response (SDRF/NDRF) authorization or private heli-insurance confirmation. 4) Keeping the casualty insulated and stabilized on supplemental O2.",
+    "expected_keywords": ["helicopter", "coordinates", "landing zone", "sdrf", "oxygen", "evacuation"]
+  },
+  {
+    "id": "rag_bench_013",
+    "category": "Trek Routes",
+    "question": "What is the Chadar Frozen River trek and what are the primary hazards?",
+    "ground_truth": "The Chadar Trek involves walking over the frozen Zanskar River in Ladakh at sub-zero temperatures (-15°C to -30°C). Primary hazards include thin/breaking ice sheets ('chadar'), falling into freezing rapids, severe frostbite, hypothermia, and sudden river surges.",
+    "expected_keywords": ["chadar", "zanskar", "ladakh", "frozen river", "hypothermia", "frostbite", "ice"]
+  },
+  {
+    "id": "rag_bench_014",
+    "category": "Fitness & Training",
+    "question": "What cardiovascular baseline is recommended before attempting a 4,500m+ Himalayan trek?",
+    "ground_truth": "Trekkers should be able to comfortably jog 5 kilometers in under 30-33 minutes, perform 45-60 flights of stair climbing with a 5-6 kg daypack, and maintain 3-4 hours of aerobic endurance activities per week for at least 6 weeks prior to departure.",
+    "expected_keywords": ["5 km", "30 minutes", "stairs", "endurance", "6 weeks", "cardio"]
+  },
+  {
+    "id": "rag_bench_015",
+    "category": "Weather & Meteorology",
+    "question": "How does barometric pressure drop affect oxygen availability at 4,000 meters?",
+    "ground_truth": "At 4,000 meters, the percentage of oxygen in air remains 21%, but barometric pressure drops to approximately 60% of sea level pressure (around 460 mmHg vs 760 mmHg). Each breath takes in 40% fewer oxygen molecules (effective oxygen fraction), causing lower arterial blood oxygen saturation.",
+    "expected_keywords": ["barometric pressure", "oxygen", "40%", "sea level", "saturation", "4000"]
+  },
+  {
+    "id": "rag_bench_016",
+    "category": "Trek Routes",
+    "question": "What is the historical significance and altitude of Har Ki Dun trek?",
+    "ground_truth": "Har Ki Dun ('Valley of Gods') at 3,566 meters in the Garhwal Himalayas is steeped in Mahabharata legend as the pathway taken by the Pandavas ascending to Swargarohini peak. It features ancient wooden architecture villages like Osla and views of Jaundhar Glacier.",
+    "expected_keywords": ["har ki dun", "3566", "swargarohini", "pandavas", "osla", "garhwali"]
+  },
+  {
+    "id": "rag_bench_017",
+    "category": "Gear & Packing",
+    "question": "Why is UV eye protection critical at high alpine elevations?",
+    "ground_truth": "UV radiation intensity increases by 10-12% for every 1,000 meters of elevation, and snow reflects up to 80-90% of solar UV radiation. Without Category 3 or 4 polarized sunglasses with side shields, unprotected exposure causes photokeratitis ('snow blindness') and corneal burn within a few hours.",
+    "expected_keywords": ["snow blindness", "category 4", "polarized", "uv radiation", "photokeratitis", "side shields"]
+  },
+  {
+    "id": "rag_bench_018",
+    "category": "High Altitude Safety",
+    "question": "What daily diagnostic checks should a trek leader perform on participants?",
+    "ground_truth": "Trek leaders must conduct morning and evening health logs recording: 1) Pulse oximetry (SpO2 percentage, target >75-80% at 3,500m+). 2) Resting heart rate. 3) Lake Louise Score (LLS) for altitude illness assessing headache, gastrointestinal symptoms, fatigue, dizziness, and sleep quality.",
+    "expected_keywords": ["pulse oximeter", "spo2", "heart rate", "lake louise score", "health log"]
+  },
+  {
+    "id": "rag_bench_019",
+    "category": "Environmental Conservation",
+    "question": "What is the protocol for human waste management at alpine base camps?",
+    "ground_truth": "At organized camps, dry toilet tents with organic sawdust/ash pits located at least 60-70 meters away from streams and water bodies are used. In wilderness high camps, catholes must be dug 6 to 8 inches deep in organic soil, well away from water lines, and all sanitary wipes or toilet paper must be packed out in odor-proof sealable trash bags.",
+    "expected_keywords": ["dry toilet", "catholes", "60 meters", "water sources", "pack out"]
+  },
+  {
+    "id": "rag_bench_020",
+    "category": "Emergency & Rescue",
+    "question": "What are the symptoms and immediate field management of severe hypothermia?",
+    "ground_truth": "Symptoms include violent shivering followed by cessation of shivering (paradoxical undressing), slurred speech, clumsy fumble, confusion, and sluggish pulse. Immediate management: Move out of wind into shelter, remove wet garments, wrap in dry sleeping bag with insulated ground pad, apply warm heat packs to core (groin, axillae, neck), and administer warm sweet fluids if fully conscious.",
+    "expected_keywords": ["hypothermia", "shivering", "insulation", "dry clothes", "sleeping bag", "heat packs"]
+  }
+]

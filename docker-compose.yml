@@ -1,0 +1,151 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: trekmate-postgres
+    environment:
+      POSTGRES_DB: trekmate_db
+      POSTGRES_USER: trekmate_user
+      POSTGRES_PASSWORD: trekmate_pass_change_in_production
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - trekmate-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trekmate_user -d trekmate_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis (for caching and Celery)
+  redis:
+    image: redis:7-alpine
+    container_name: trekmate-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - trekmate-network
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend (Flask API)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: trekmate-backend
+    environment:
+      - DATABASE_URL=postgresql://trekmate_user:trekmate_pass_change_in_production@postgres:5432/trekmate_db
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=${SECRET_KEY:-trekmate-secret-key-change-this}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-trekmate-jwt-key-change-this}
+      - LLM_PROVIDER=${LLM_PROVIDER:-mock}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-}
+      - EMBEDDING_PROVIDER=${EMBEDDING_PROVIDER:-mock}
+      - CACHE_TYPE=RedisCache
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - trekmate-network
+    volumes:
+      - ./backend:/app
+      - backend_instances:/app/instances
+    command: gunicorn app:app --bind 0.0.0.0:5000 --workers 2 --threads 4 --timeout 120
+    restart: unless-stopped
+
+  # Celery Worker (for background tasks)
+  celery-worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: trekmate-celery-worker
+    environment:
+      - DATABASE_URL=postgresql://trekmate_user:trekmate_pass_change_in_production@postgres:5432/trekmate_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
+      - SECRET_KEY=${SECRET_KEY:-trekmate-secret-key-change-this}
+      - LLM_PROVIDER=${LLM_PROVIDER:-mock}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    depends_on:
+      - redis
+      - postgres
+      - backend
+    networks:
+      - trekmate-network
+    volumes:
+      - ./backend:/app
+      - backend_instances:/app/instances
+    command: celery -A tasks.celery_app worker --loglevel=info
+    restart: unless-stopped
+
+  # Celery Beat (for scheduled tasks)
+  celery-beat:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: trekmate-celery-beat
+    environment:
+      - DATABASE_URL=postgresql://trekmate_user:trekmate_pass_change_in_production@postgres:5432/trekmate_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
+      - SECRET_KEY=${SECRET_KEY:-trekmate-secret-key-change-this}
+    depends_on:
+      - redis
+      - postgres
+      - backend
+    networks:
+      - trekmate-network
+    volumes:
+      - ./backend:/app
+      - backend_instances:/app/instances
+    command: celery -A tasks.celery_app beat --loglevel=info
+    restart: unless-stopped
+
+  # Frontend (Vue.js)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: trekmate-frontend
+    environment:
+      - VITE_API_BASE_URL=http://localhost:5000/api
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - trekmate-network
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host
+    restart: unless-stopped
+
+networks:
+  trekmate-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  backend_instances:
