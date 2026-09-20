@@ -56,6 +56,7 @@ const routes = [
   { path: '/user/profile', name: 'user-profile', component: UserProfile, meta: { role: 'user' } },
 
   // AI Assistant and Trek Tracker - Available to all roles (admin, staff, user)
+  { path: '/trip-plan', name: 'trip-plan', component: () => import('../components/user/TripPlan.vue') },
   { path: '/ai-assistant', name: 'ai-assistant', component: AIAssistant },
   { path: '/trek-tracker/:id', name: 'trek-tracker', component: TrekTracker },
 ]
