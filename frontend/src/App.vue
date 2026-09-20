@@ -1,18 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" style="min-height:100vh;">
     <router-view />
-    <AppFooter />
   </div>
 </template>
 
 <script>
-import AppFooter from './components/shared/AppFooter.vue'
-
 export default {
-  name: 'App',
-  components: {
-    AppFooter
-  }
+  name: 'App'
 }
 </script>
 
