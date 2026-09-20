@@ -54,8 +54,10 @@ const routes = [
   { path: '/user/my-bookings', name: 'user-my-bookings', component: UserMyBookings, meta: { role: 'user' } },
   { path: '/user/history', name: 'user-history', component: UserTrekkingHistory, meta: { role: 'user' } },
   { path: '/user/profile', name: 'user-profile', component: UserProfile, meta: { role: 'user' } },
-  { path: '/user/ai-assistant', name: 'user-ai-assistant', component: AIAssistant, meta: { role: 'user' } },
-  { path: '/user/trek-tracker/:id', name: 'user-trek-tracker', component: TrekTracker, meta: { role: 'user' } },
+
+  // AI Assistant and Trek Tracker - Available to all roles (admin, staff, user)
+  { path: '/ai-assistant', name: 'ai-assistant', component: AIAssistant },
+  { path: '/trek-tracker/:id', name: 'trek-tracker', component: TrekTracker },
 ]
 
 const router = createRouter({

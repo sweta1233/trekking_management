@@ -1,406 +1,64 @@
-# TrekMate AI – Intelligent Trekking Management & Adventure Assistant
+# 🏔️ TrekMate AI - Intelligent Trekking Management Platform
 
-A production-grade full-stack application demonstrating practical AI Engineering skills through a complete trekking management platform powered by **Generative AI, RAG, LangChain, LangGraph, Vector Databases, Traditional ML, and intelligent agent orchestration**.
+A production-grade full-stack trekking management application with **AI-powered features**, real-time trek tracking, and comprehensive management tools for administrators, staff, and trekkers.
 
 🚀 **Live Demo**: [trekking-management-sand.vercel.app](https://trekking-management-sand.vercel.app)  
-📂 **GitHub**: [sweta1233/Trekking-management-app](https://github.com/sweta1233/Trekking-management-app)
+📂 **GitHub**: [github.com/sweta1233/trekking_management](https://github.com/sweta1233/trekking_management)  
+👤 **Developer**: [@sweta1233](https://github.com/sweta1233)
 
 ---
 
 ## 🎯 Project Overview
 
-TrekMate AI is not just another chatbot-enabled application. It's a comprehensive AI-powered platform that demonstrates:
+TrekMate AI is a comprehensive trekking management platform featuring:
 
-- **RAG (Retrieval-Augmented Generation)** with document chunking, vector search, and grounded responses
-- **LangGraph** multi-agent orchestration with intelligent intent routing
-- **LangChain** for document processing, embeddings, and retrieval pipelines
-- **Vector databases** (FAISS) for semantic search and similarity matching
-- **Traditional ML** (scikit-learn, XGBoost) for demand prediction
-- **NLP & Sentiment Analysis** for review analytics
-- **Embeddings** for personalized recommendations
-- **Multi-agent workflows** with tool calling and state management
+- **🤖 AI Assistant** - Powered by RAG, LangGraph, and Vector Search for intelligent trek recommendations
+- **📍 Live Trek Tracking** - Real-time location, altitude, weather monitoring with ML predictions
+- **📊 Admin Dashboard** - Complete management system for treks, staff, users, and bookings
+- **👥 Staff Management** - Trek guide portal for managing participants and itineraries
+- **🎯 User Portal** - Browse treks, book adventures, track progress, and access AI assistance
 
 ---
 
-## 🏗️ Architecture
+## 🚀 Quick Start (5 Minutes)
 
-```
-Frontend (Vue.js)
-        ↓
-   REST API (Flask)
-        ↓
-   AI Orchestrator
-        ↓
-     LangGraph
-        ↓
-   ┌────────┴─────────┐
-   ↓                  ↓
-RAG Agent      Recommendation Engine
-   ↓                  ↓
-LangChain        Embeddings
-   ↓                  ↓
-Vector DB        ML Models
-(FAISS)         (scikit-learn)
-```
-
----
-
-## 🚀 Key Features
-
-### **For Trekkers (Users)**
-- 🤖 **AI Assistant** powered by LangGraph with intelligent routing
-- 🎯 **Personalized Recommendations** using embeddings & semantic matching
-- 📚 **RAG-based Q&A** - Ask questions, get answers with source citations
-- 🗓️ **AI Trip Planner** - Generate day-by-day itineraries with acclimatization
-- 🎒 **Smart Packing Lists** - Contextual gear recommendations
-- 💪 **Fitness Assessment** - Trek readiness evaluation with training plans
-- 🔍 **Semantic Search** - Find treks using natural language
-
-### **For Trek Organizers**
-- 📄 **Document Upload** for RAG indexing (PDFs, DOCX, TXT, MD)
-- 📊 **Review Analytics** - NLP sentiment analysis & aspect extraction
-- 📈 **Demand Prediction** - Traditional ML forecasting
-- 🧑‍🤝‍🧑 **Guide Management**
-- 📅 **Trek & Itinerary Management**
-
-### **For Admins**
-- 📊 **AI Analytics Dashboard** - Usage metrics, latency, token consumption
-- 👥 **User & Staff Management**
-- 💰 **Revenue Reports**
-- 🔍 **Advanced Search**
-
----
-
-## 🛠️ Technology Stack
-
-### **Frontend**
-- **Vue.js 3** - Progressive framework
-- **Tailwind CSS** - Utility-first styling
-- **Axios** - HTTP client
-- **Vue Router** - Navigation
-
-### **Backend**
-- **Python 3.10+**
-- **Flask** - REST API framework
-- **SQLAlchemy** - ORM
-- **JWT** - Authentication
-- **Flask-Caching** - Redis/SimpleCache
-
-### **AI/ML Stack**
-| Technology | Purpose |
-|-----------|---------|
-| **LangChain** | Document loading, text splitting, embeddings, retrievers |
-| **LangGraph** | Multi-agent orchestration, stateful workflows |
-| **FAISS** | Vector database for similarity search |
-| **OpenAI / Anthropic / Gemini** | LLM providers (configurable) |
-| **sentence-transformers** | Local embeddings (HuggingFace) |
-| **pypdf / python-docx** | Document parsing |
-| **scikit-learn** | Traditional ML models |
-| **XGBoost** | Gradient boosting |
-| **pandas / NumPy** | Data manipulation |
-
-### **Database**
-- **PostgreSQL** (production)
-- **SQLite** (development)
-
----
-
-## 📊 Database Schema
-
-```
-users
-├── id, name, email, password_hash, role, status
-├── experience_level, fitness_level, preferred_difficulty
-├── max_altitude_climbed, budget_preference
-└── medical_conditions, emergency_contact
-
-treks
-├── id, trek_name, location, region, difficulty
-├── duration, distance_km, max_altitude_m
-├── price, available_slots, start_date, end_date
-└── description, safety_guidelines, gear_requirements
-
-trek_documents (RAG Pipeline)
-├── id, trek_id, title, file_path, file_type, category
-├── chunk_count, is_indexed, summary
-└── chunks → document_chunks
-
-document_chunks
-├── id, document_id, trek_id, chunk_index
-├── content, page_number, section_header
-└── (embedded in FAISS vector store)
-
-reviews (NLP/Sentiment Analysis)
-├── id, user_id, trek_id, rating, comment
-├── sentiment_score, sentiment_label
-├── aspect_scores (JSON: safety, guide, route, food)
-└── key_positives, key_concerns (JSON)
-
-conversations (AI Chat History)
-├── id, user_id, session_id, title
-└── messages → messages table
-
-ai_interaction_logs (Observability)
-├── id, user_id, session_id, request_type
-├── model_used, prompt_tokens, completion_tokens
-├── latency_ms, tool_used, retrieval_count
-└── grounding_score, was_safe
-
-trek_recommendation_logs
-├── id, user_id, preferences (JSON)
-├── recommended_trek_ids (JSON)
-└── scores, match_reasons (JSON)
-```
-
----
-
-## 🤖 AI Agent Architecture (LangGraph)
-
-### **Intent Classification → Dynamic Routing**
-
-```
-User Query
-    ↓
-Intent Classifier (rule-based + keyword)
-    ↓
-Router
-    ├── Recommendation Agent → Embeddings + Semantic Matching
-    ├── RAG Information Agent → Vector Search + Document Retrieval
-    ├── Trip Planning Agent → Itinerary Generation
-    ├── Booking Agent → Database Tools
-    ├── Fitness/Readiness Agent → Assessment Logic
-    ├── Packing Assistant → Contextual Gear Lists
-    ├── Review Analytics Agent → NLP Sentiment
-    └── General Assistant → Direct LLM
-    ↓
-Response Generator (Markdown formatting)
-    ↓
-Safety/Grounding Validator
-    ↓
-Structured Response + Sources + Metadata
-```
-
-### **Example Query Flow**
-
-**User**: *"Which trek is best for beginners in winter?"*
-
-1. **Intent Classifier** → `recommendation`
-2. **Recommendation Agent**:
-   - Extracts user profile (experience: beginner)
-   - Filters treks (difficulty: Easy, season: winter)
-   - Computes embeddings similarity
-   - Ranks by match score
-3. **Response Generator**:
-   - Formats top 3 recommendations
-   - Adds match reasons
-4. **Safety Validator**:
-   - Checks for altitude safety notes
-5. **Returns**: Structured response with trek cards, match explanations
-
----
-
-## 📚 RAG Pipeline (Retrieval-Augmented Generation)
-
-### **Document Ingestion Flow**
-
-```
-PDF/DOCX Upload
-    ↓
-Text Extraction (pypdf, python-docx)
-    ↓
-LangChain RecursiveCharacterTextSplitter
-    • chunk_size: 600 tokens
-    • chunk_overlap: 120 tokens
-    ↓
-Metadata Enrichment
-    • trek_id, document_id, page_number
-    • section_header (detected from text)
-    • category (route_guide, safety, permits)
-    ↓
-Embedding Generation
-    • OpenAI text-embedding-3-small, or
-    • HuggingFace sentence-transformers
-    ↓
-FAISS Vector Index
-    • Stored in backend/instances/faiss_index/
-    • Cosine similarity search
-    ↓
-Database Persistence (document_chunks table)
-```
-
-### **Query Flow**
-
-```
-User Query: "How to prevent altitude sickness?"
-    ↓
-Query Embedding
-    ↓
-FAISS Similarity Search (top_k=4, threshold=0.05)
-    ↓
-Retrieved Chunks with Metadata
-    • Document title, page number, section
-    • Similarity score
-    ↓
-Context Assembly
-    • Format with citations
-    • Include trek database info if trek_id provided
-    ↓
-LLM Synthesis (with grounding rules)
-    • System prompt enforces source citation
-    • Temperature: 0.3 for factual accuracy
-    ↓
-Grounded Answer + Source Citations
-    • Grounding score computed (word overlap)
-    • Page numbers & document references
-```
-
----
-
-## 🎯 Trek Recommendation Engine
-
-### **Hybrid Scoring System**
-
-```python
-User Profile:
-  - experience_level: "Beginner"
-  - fitness_level: "Moderate"
-  - budget: ₹12,000
-  - max_altitude: 2,500m
-  - preferred_difficulty: "Easy"
-  - interests: "snow, lakes, forests"
-
-↓
-
-Candidate Filtering:
-  - difficulty ≤ user.preferred_difficulty
-  - price ≤ user.budget * 1.2
-  - max_altitude ≤ user.max_altitude * 1.5
-
-↓
-
-Semantic Similarity (Embeddings):
-  - Embed user interests
-  - Embed trek descriptions
-  - Cosine similarity score
-
-↓
-
-Rule-Based Scoring:
-  - Difficulty match: +30 points
-  - Budget match: +25 points
-  - Altitude match: +20 points
-  - Duration match: +15 points
-  - Season match: +10 points
-
-↓
-
-Final Score = (semantic_score * 40) + (rule_score * 60)
-
-↓
-
-Top N Recommendations with Match Reasons
-```
-
----
-
-## 🧪 Traditional ML Component
-
-### **Trek Demand Prediction**
-
-**Purpose**: Demonstrate classical ML alongside LLM-based AI
-
-**Features**:
-- Month, season (cyclical encoding)
-- Trek difficulty (one-hot)
-- Duration, altitude, distance
-- Price range
-- Location popularity
-- Historical booking patterns
-
-**Models Trained**:
-- Random Forest Regressor
-- XGBoost
-
-**Evaluation Metrics**:
-- MAE (Mean Absolute Error)
-- RMSE (Root Mean Squared Error)
-- R² Score
-
-**Output**:
-- Predicted booking volume
-- Demand category: Low / Medium / High
-- Confidence interval
-
----
-
-## 🔐 Safety & Grounding
-
-TrekMate AI implements strict safety measures:
-
-### **RAG Grounding**
-- ✅ All factual answers cite source documents
-- ✅ Page numbers and sections provided
-- ✅ Grounding score computed (0.0–1.0)
-- ✅ "Insufficient information" when sources don't cover query
-
-### **High-Altitude Safety**
-- ⚠️ Never claims a trek is "safe" solely based on AI
-- ⚠️ Always includes acclimatization warnings for >3,000m
-- ⚠️ Directs users to medical professionals for health questions
-- ⚠️ Emergency protocols in all safety documents
-
-### **No Medical Diagnosis**
-- ❌ Fitness assessment is **educational only**
-- ❌ Always includes disclaimer to consult doctors
-- ❌ Never guarantees physical readiness
-
-### **No Hallucination**
-- ✅ Trip planner uses actual trek data from database
-- ✅ Clearly states when information is unavailable
-- ✅ Never invents route details or safety information
-
----
-
-## 📦 Installation & Setup
-
-### **Prerequisites**
+### Prerequisites
 - Python 3.10+
 - Node.js 18+
-- Redis (optional, for caching)
-- PostgreSQL (for production) or SQLite (for dev)
+- pip and npm installed
 
-### **Backend Setup**
+### 1. Backend Setup
 
 ```bash
 cd backend
 
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Configure environment
-cp .env.example .env
-# Edit .env with your settings
+# Create .env file
+echo "SECRET_KEY=dev-secret-key" > .env
+echo "JWT_SECRET_KEY=dev-jwt-secret" >> .env
+echo "DATABASE_URL=sqlite:///instances/tma.db" >> .env
 
-# For offline development (no API keys):
-# Set LLM_PROVIDER=mock and EMBEDDING_PROVIDER=mock
-
-# For full AI features:
-# Set LLM_PROVIDER=openai and add your OPENAI_API_KEY
-
-# Initialize database & seed sample data
+# Seed sample data (creates treks, users, documents)
 python seeds.py
 
-# Run the backend
+# Start backend
 python app.py
 ```
 
-Backend runs at **http://localhost:5000**
+✅ Backend runs at **http://localhost:5000**
 
-### **Frontend Setup**
+### 2. Frontend Setup
 
 ```bash
 cd frontend
@@ -408,154 +66,151 @@ cd frontend
 # Install dependencies
 npm install
 
-# Configure API endpoint (if needed)
-# Create .env file:
+# Create .env file
 echo "VITE_API_BASE_URL=http://localhost:5000/api" > .env
 
-# Run development server
+# Start frontend
 npm run dev
 ```
 
-Frontend runs at **http://localhost:5173**
+✅ Frontend runs at **http://localhost:5173**
 
----
+### 3. Login & Test
 
-## 🔑 Default Credentials
+Open **http://localhost:5173** and login with:
 
-**Admin**:
+**Admin Access:**
 - Email: `admin@tma.com`
 - Password: `Admin@123`
 
-**Sample Users** (created by seeds.py):
-- `priya.sharma@example.com` / `Test@123` (Beginner)
-- `rajesh.kumar@example.com` / `Test@123` (Intermediate)
-- `ananya.reddy@example.com` / `Test@123` (Advanced)
+**User Access:**
+- Email: `priya.sharma@example.com`
+- Password: `Test@123`
+
+**Staff Access:**
+- Email: `rajesh.guide@example.com`
+- Password: `Staff@123`
 
 ---
 
-## 🚀 API Endpoints
+## 🛠️ Technology Stack
 
-### **AI Endpoints**
+### Frontend
+- **Vue.js 3** - Progressive JavaScript framework
+- **Vue Router** - Client-side routing
+- **Axios** - HTTP client
+- **Responsive Design** - Mobile-first approach
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/ai/chat` | POST | LangGraph multi-agent chat |
-| `/api/ai/rag/query` | POST | RAG document Q&A |
-| `/api/ai/recommend` | POST | Personalized trek recommendations |
-| `/api/ai/trip-planner` | POST | AI itinerary generation |
-| `/api/ai/packing-list` | POST | Contextual packing lists |
-| `/api/ai/fitness-assessment` | POST | Readiness evaluation |
-| `/api/ai/reviews/analyze` | POST | NLP sentiment analysis |
-| `/api/ai/documents/upload` | POST | Document upload & indexing |
-| `/api/ai/documents` | GET | List indexed documents |
-| `/api/ai/ml/demand-prediction` | POST | ML demand forecasting |
-| `/api/ai/search/semantic` | POST | Vector similarity search |
-| `/api/ai/conversations` | GET | Chat history |
-| `/api/ai/admin/analytics` | GET | AI usage metrics (admin) |
+### Backend
+- **Python 3.10+** - Core language
+- **Flask** - REST API framework
+- **SQLAlchemy** - ORM for database operations
+- **JWT** - Secure authentication
+- **Flask-Caching** - Performance optimization
 
-### **Core Endpoints**
+### AI/ML Features (Optional)
+- **LangChain** - Document processing and RAG pipeline
+- **LangGraph** - Multi-agent orchestration
+- **FAISS** - Vector database for semantic search
+- **OpenAI / Anthropic / Gemini** - LLM providers (configurable)
+- **scikit-learn / XGBoost** - Traditional ML models
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/auth/register` | POST | User registration |
-| `/api/auth/login` | POST | JWT authentication |
-| `/api/treks` | GET | List treks with filters |
-| `/api/treks/:id` | GET | Trek details |
-| `/api/treks` | POST | Create trek (admin) |
-| `/api/bookings` | POST | Book a trek |
-| `/api/bookings` | GET | User's bookings |
-| `/api/reviews` | POST | Submit review |
-| `/api/dashboard/admin` | GET | Admin dashboard |
-| `/api/reports` | GET | Analytics reports |
+### Database
+- **SQLite** - Development
+- **PostgreSQL** - Production (optional)
 
 ---
 
-## 🧪 Testing the AI Features
+## 📊 Features by Role
 
-### **1. Test RAG Pipeline**
+### 👤 Users (Trekkers)
+- ✅ Browse available treks with filtering
+- ✅ Book treks and manage bookings
+- ✅ View trekking history
+- ✅ **🤖 AI Assistant** - Ask questions, get recommendations
+- ✅ **📍 Live Trek Tracker** - Real-time progress monitoring
+  - Current altitude, distance, time elapsed
+  - Interactive route map with checkpoints
+  - ML-powered predictions (ETA, weather, risk assessment)
+  - Group member tracking
+  - Real-time alerts
+- ✅ Profile management
+- ✅ Dashboard with statistics
 
-```bash
-# Upload a document
-curl -X POST http://localhost:5000/api/ai/documents/upload \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -F "file=@trek_guide.pdf" \
-  -F "title=Kedarkantha Safety Guide" \
-  -F "category=safety" \
-  -F "trek_id=1"
+### 👥 Staff (Trek Guides)
+- ✅ View assigned treks
+- ✅ Manage trek participants
+- ✅ Update trek status
+- ✅ **🤖 AI Assistant** - Access to all AI features
+- ✅ **📍 Trek Tracker** - Monitor ongoing treks
+- ✅ Profile management
+- ✅ Dashboard with assigned treks
 
-# Query the RAG system
-curl -X POST http://localhost:5000/api/ai/rag/query \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "question": "What are the symptoms of altitude sickness?",
-    "trek_id": 1
-  }'
-```
-
-### **2. Test AI Chat (LangGraph)**
-
-```bash
-curl -X POST http://localhost:5000/api/ai/chat \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "message": "Which trek is best for beginners?",
-    "session_id": "test_session_1"
-  }'
-```
-
-### **3. Test Recommendations**
-
-```bash
-curl -X POST http://localhost:5000/api/ai/recommend \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "experience_level": "Beginner",
-    "budget": 15000,
-    "duration_days": 5,
-    "interests": "snow trekking with mountain views"
-  }'
-```
+### 🔐 Administrators
+- ✅ Complete trek management (create, edit, delete)
+- ✅ User and staff management
+- ✅ Booking oversight and approvals
+- ✅ Revenue reports and analytics
+- ✅ **🤖 AI Assistant** - Full AI capabilities
+- ✅ **📍 Trek Tracker** - Monitor all active treks
+- ✅ Advanced search and filtering
+- ✅ System settings
+- ✅ Comprehensive dashboard
 
 ---
 
-## 📊 Observability & Analytics
+## 🗄️ Database Schema
 
-### **AI Interaction Logs**
+### Core Tables
+- **users** - User accounts (admin, staff, user roles)
+- **treks** - Trek information and details
+- **bookings** - User trek reservations
+- **reviews** - Trek reviews and ratings
 
-Every AI request is logged with:
-- Request type (chat, rag, recommendation, etc.)
-- Model used
-- Token consumption (prompt + completion)
-- Latency (ms)
-- Retrieval count (for RAG)
-- Grounding score
-- Tool calls made
-- Success/error status
+### AI Features (Optional)
+- **trek_documents** - Documents for RAG pipeline
+- **document_chunks** - Chunked content for vector search
+- **conversations** - AI chat history
+- **ai_interaction_logs** - Analytics and observability
 
-### **Admin Analytics Dashboard**
+---
 
-Access at `/admin/ai-analytics` (admin only):
-- Total AI requests by type
-- Average latency per request type
-- Model usage distribution
-- Token consumption trends
-- Grounding score averages
-- Error rates
-- Tool usage frequency
-- Recent interaction logs
+## 📡 API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - Login (returns JWT token)
+
+### Core Features
+- `GET /api/treks` - List all treks with filters
+- `GET /api/treks/:id` - Trek details
+- `POST /api/treks` - Create trek (admin only)
+- `PUT /api/treks/:id` - Update trek (admin only)
+- `DELETE /api/treks/:id` - Delete trek (admin only)
+- `POST /api/bookings` - Book a trek
+- `GET /api/bookings` - User's bookings
+- `POST /api/reviews` - Submit review
+- `GET /api/dashboard/admin` - Admin dashboard data
+- `GET /api/dashboard/staff` - Staff dashboard data
+- `GET /api/dashboard/user` - User dashboard data
+
+### AI Features (Optional)
+- `POST /api/ai/chat` - AI chat conversation
+- `POST /api/ai/recommend` - Personalized recommendations
+- `POST /api/ai/rag/query` - RAG document Q&A
+- `POST /api/ai/trip-planner` - AI itinerary generation
+- `POST /api/ai/documents/upload` - Upload documents for RAG
 
 ---
 
 ## 🐳 Docker Deployment
 
-### **Using Docker Compose**
-
 ```bash
 # Build and start all services
 docker-compose up -d
+
+# Seed sample data
+docker-compose exec backend python seeds.py
 
 # View logs
 docker-compose logs -f backend
@@ -565,141 +220,236 @@ docker-compose down
 ```
 
 Services:
-- **Backend**: http://localhost:5000
-- **Frontend**: http://localhost:5173
-- **PostgreSQL**: localhost:5432
-- **Redis**: localhost:6379
+- Backend: http://localhost:5000
+- Frontend: http://localhost:5173
+- PostgreSQL: localhost:5432
+- Redis: localhost:6379
 
 ---
 
-## 🌍 Environment Variables
+## 🔧 Configuration
 
-See `backend/.env.example` for all configuration options.
+### Backend Environment Variables
 
-### **Key Variables**
+Create `backend/.env`:
 
 ```bash
-# LLM Provider
-LLM_PROVIDER=openai  # or anthropic, gemini, mock
-OPENAI_API_KEY=your-key
-
-# Embeddings
-EMBEDDING_PROVIDER=openai  # or huggingface, mock
-EMBEDDING_MODEL=text-embedding-3-small
-
-# RAG Settings
-RAG_CHUNK_SIZE=600
-RAG_CHUNK_OVERLAP=120
-RAG_TOP_K=4
+# Application
+SECRET_KEY=your-secret-key-here
+JWT_SECRET_KEY=your-jwt-secret-here
 
 # Database
-DATABASE_URL=postgresql://user:pass@localhost:5432/trekmate
+DATABASE_URL=sqlite:///instances/tma.db
+# For PostgreSQL: postgresql://user:pass@localhost:5432/trekmate
+
+# Optional: AI Features
+LLM_PROVIDER=mock  # or openai, anthropic, gemini
+EMBEDDING_PROVIDER=mock  # or openai, huggingface
+OPENAI_API_KEY=your-openai-key  # if using OpenAI
+```
+
+### Frontend Environment Variables
+
+Create `frontend/.env`:
+
+```bash
+VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
 ---
 
-## 📈 Performance Considerations
+## 📁 Project Structure
 
-### **Token Optimization**
-- Chunk size: 600 tokens (balance between context and retrieval precision)
-- Chunk overlap: 120 tokens (preserve context across boundaries)
-- Top-k: 4 chunks (sufficient context without token bloat)
-- Temperature: 0.3 for factual queries (reduce hallucination)
-
-### **Caching Strategy**
-- Trek listings cached for 5 minutes
-- Vector embeddings cached in FAISS index
-- User sessions maintained in Redis
-
-### **Cost Estimation** (with OpenAI)
-- Average chat query: ~500 input + 300 output tokens
-- RAG query: ~1,200 input + 400 output tokens
-- Cost per 1,000 queries: ~$2-5 USD
+```
+TrekMate_AI/
+├── backend/
+│   ├── ai/                    # AI services (RAG, LangGraph, etc.)
+│   ├── ml/                    # Traditional ML models
+│   ├── models.py              # Database models
+│   ├── routes.py              # Core API routes
+│   ├── ai_routes.py           # AI API endpoints
+│   ├── app.py                 # Flask application
+│   ├── config.py              # Configuration
+│   ├── seeds.py               # Sample data seeder
+│   └── requirements.txt       # Python dependencies
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── admin/         # Admin components
+│   │   │   ├── staff/         # Staff components
+│   │   │   ├── user/          # User components
+│   │   │   │   ├── AIAssistant.vue
+│   │   │   │   ├── TrekTracker.vue
+│   │   │   │   └── UserDashboard.vue
+│   │   │   └── shared/        # Shared components
+│   │   ├── router/            # Vue Router configuration
+│   │   ├── services/          # API and auth services
+│   │   └── App.vue            # Root component
+│   └── package.json
+│
+├── docker-compose.yml
+└── README.md
+```
 
 ---
 
-## 🎓 Interview Readiness
+## 🧪 Testing the Application
 
-### **Questions You Can Answer**
+### 1. Test Core Features
+- Login with different roles (admin, staff, user)
+- Browse and filter treks
+- Create a booking as a user
+- Approve booking as admin
+- View dashboards for each role
 
-1. **Why did you use RAG instead of fine-tuning?**
-   - Domain-specific documents change frequently
-   - Source attribution required
-   - Cost-effective vs fine-tuning
-   - Easier to update knowledge base
+### 2. Test AI Features (if configured)
+- Navigate to AI Assistant (available for all roles)
+- Ask: "Which trek is best for beginners?"
+- Ask: "What should I pack for high altitude?"
+- Test personalized recommendations
 
-2. **Explain your LangGraph workflow**
-   - Intent classification routes to specialized agents
-   - Each agent uses specific tools (RAG, DB, ML)
-   - State maintained across agent transitions
-   - Response synthesis aggregates results
+### 3. Test Live Trek Tracker
+- Login as any role
+- Navigate to Trek Tracker (for active bookings)
+- Observe real-time updates:
+  - Progress percentage
+  - Altitude, distance, temperature
+  - Interactive map
+  - ML predictions
 
-3. **How does your vector store work?**
-   - Documents chunked via RecursiveCharacterTextSplitter
-   - Chunks embedded with sentence-transformers
-   - FAISS index for cosine similarity search
-   - Metadata filtering by trek_id, category
+---
 
-4. **Why use traditional ML alongside LLMs?**
-   - Demand prediction is tabular data (not NLP)
-   - XGBoost faster and cheaper than LLM
-   - Demonstrates understanding of when NOT to use LLMs
-   - Hybrid approach shows ML breadth
+## 🔍 Troubleshooting
 
-5. **How do you prevent hallucination?**
-   - RAG grounds responses in documents
-   - Source citations mandatory
-   - Grounding score computed
-   - Clear "insufficient information" when knowledge gaps
+### Backend Won't Start
 
-6. **How does your recommendation system work?**
-   - Hybrid: embeddings (semantic) + rules (constraints)
-   - User profile embedding × trek description embedding
-   - Filters: budget, altitude, difficulty
-   - Explainable match reasons
+**Issue**: Port 5000 already in use
+```bash
+# Windows
+netstat -ano | findstr :5000
+taskkill /PID <PID> /F
+
+# Mac/Linux
+lsof -ti:5000 | xargs kill -9
+```
+
+**Issue**: Module not found
+```bash
+# Ensure virtual environment is activated
+# Should see (venv) in terminal prompt
+pip install -r requirements.txt
+```
+
+### Frontend Won't Connect
+
+**Issue**: Can't reach backend
+- Check `VITE_API_BASE_URL` in `frontend/.env`
+- Ensure backend is running at http://localhost:5000
+- Check for CORS errors in browser console
+
+### Database Issues
+
+**Issue**: Database locked (SQLite)
+```bash
+# Stop backend, delete database, re-seed
+rm backend/instances/tma.db
+python seeds.py
+```
+
+---
+
+## 🚀 Deployment
+
+### Vercel (Frontend)
+1. Push code to GitHub
+2. Connect repository to Vercel
+3. Set environment variable: `VITE_API_BASE_URL=<your-backend-url>/api`
+4. Deploy
+
+### Render (Backend)
+1. Create new Web Service on Render
+2. Connect GitHub repository
+3. Set build command: `pip install -r backend/requirements.txt`
+4. Set start command: `cd backend && python app.py`
+5. Add environment variables from `.env.example`
+6. Deploy
+
+---
+
+## 📈 Key Features Highlights
+
+### 1. Live Trek Tracking
+Real-time monitoring system with:
+- **Progress Visualization** - Circular progress indicator
+- **Live Stats** - Altitude, time, distance, temperature
+- **Interactive Map** - Canvas-based route with checkpoints
+- **ML Predictions** - ETA, weather forecast, risk assessment, energy levels
+- **Group Tracking** - Monitor all group members' status
+- **Alerts System** - Weather and safety notifications
+
+### 2. AI Assistant (Optional)
+Intelligent assistance powered by:
+- **RAG Pipeline** - Document-grounded answers with citations
+- **LangGraph** - Multi-agent orchestration
+- **Vector Search** - Semantic similarity matching
+- **Personalized Recommendations** - Based on user profile and preferences
+- **Trip Planning** - AI-generated itineraries
+
+### 3. Role-Based Access Control
+- **Admins**: Full system access and management
+- **Staff**: Trek and participant management
+- **Users**: Booking and personal tracking
+
+---
+
+## 📝 Sample Data
+
+The `seeds.py` script creates:
+- **5 diverse treks** (Easy to Expert difficulty)
+- **1 admin account**
+- **2 staff accounts** (trek guides)
+- **4 user accounts** with varied profiles
+- **Sample bookings and reviews**
+- **2 trek guide documents** (if AI features enabled)
 
 ---
 
 ## 🔮 Future Enhancements
 
-- [ ] Multi-modal: Image analysis of trek routes
-- [ ] Real-time weather integration
-- [ ] Voice assistant (Whisper API)
-- [ ] Mobile app (React Native)
-- [ ] Advanced ML: Neural collaborative filtering
-- [ ] Multi-language support
-- [ ] Social features: Trek buddy matching
 - [ ] Payment gateway integration
+- [ ] Mobile app (React Native)
+- [ ] Real-time weather API integration
+- [ ] Multi-language support
+- [ ] Social features (trek buddy matching)
+- [ ] Advanced analytics and reporting
+- [ ] Push notifications
+- [ ] Offline mode for mobile
 
 ---
 
-## 📝 License
+## 📄 License
 
-This is a portfolio/demonstration project for AI Engineering interviews.
+This project is available for educational and portfolio purposes.
 
 ---
 
 ## 🙏 Acknowledgments
 
-**Technologies**:
-- LangChain & LangGraph by Anthropic/LangChain AI
-- OpenAI for GPT models & embeddings
-- FAISS by Meta Research
-- HuggingFace for sentence-transformers
-- scikit-learn & XGBoost for ML
-
-**Sample Data**:
-- Trek information inspired by real Himalayan treks
-- Safety guidelines based on high-altitude mountaineering best practices
+Built with modern web technologies and AI frameworks:
+- Vue.js, Flask, SQLAlchemy
+- LangChain, LangGraph (optional AI features)
+- OpenAI, Anthropic, Google Gemini (optional LLM providers)
+- FAISS, scikit-learn, XGBoost (optional ML features)
 
 ---
 
 ## 📧 Contact
 
-**GitHub**: [sweta1233](https://github.com/sweta1233)  
+**Developer**: [@sweta1233](https://github.com/sweta1233)  
 **Live Demo**: [trekking-management-sand.vercel.app](https://trekking-management-sand.vercel.app)  
-**Repository**: [github.com/sweta1233/Trekking-management-app](https://github.com/sweta1233/Trekking-management-app)
+**Repository**: [github.com/sweta1233/trekking_management](https://github.com/sweta1233/trekking_management)
 
 ---
 
-**⭐ Star this project if it helped you learn AI Engineering!**
+**⭐ Star this project if you found it helpful!**
