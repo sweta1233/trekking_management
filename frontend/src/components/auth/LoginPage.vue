@@ -45,12 +45,14 @@ const roles = [
   { label: 'Staff', value: 'staff' },
   { label: 'User', value: 'user' }
 ]
-function handleLogin() {
-  import('../../services/auth').then(({ login }) => {
-    login(email.value, phone.value, otp.value, selectedRole.value).then(u => {
-      window.location.href = '/' + selectedRole.value + '/dashboard'
-    }).catch(e => alert('OTP verification failed'))
-  })
+async function handleLogin() {
+  try {
+    const { requestOtp } = await import('../../services/auth')
+    await requestOtp(email.value)
+    alert('OTP sent to ' + email.value)
+  } catch (e) {
+    alert('Failed to send OTP')
+  }
 }
 </script>
 
