@@ -7,7 +7,7 @@
         <input v-model="password" type="password" placeholder="Password" required style="padding:12px; border-radius:8px; border:1px solid #ccc;" />
         <button type="submit" style="padding:12px; border-radius:8px; background:#667eea; color:white; border:none; font-weight:600; font-size:16px;">Login</button>
       </form>
-      <p style="margin-top:12px; font-size:13px; color:#777;">Clean centered design — no sidebars.</p>
+      <p style="margin-top:12px; font-size:13px; color:#777;">Clean centered design — no sidebars. <router-link to="/register" style="color:#667eea;">Register new user →</router-link></p>
     </div>
   </div>
 </template>
