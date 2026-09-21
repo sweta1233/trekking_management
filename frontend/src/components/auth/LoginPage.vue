@@ -22,13 +22,17 @@
           </button>
         </div>
 
-        <form @submit.prevent="handleLogin" style="display:flex; flex-direction:column; gap:12px;">
+        <form @submit.prevent="handleOtpRequest" style="display:flex; flex-direction:column; gap:12px;">
           <input v-model="email" type="email" placeholder="Email" required style="padding:12px; border-radius:8px; border:1px solid #ccc;" />
           <input v-model="phone" type="tel" placeholder="Phone Number" required style="padding:12px; border-radius:8px; border:1px solid #ccc;" />
-          <input v-model="otp" type="text" placeholder="OTP Code" required style="padding:12px; border-radius:8px; border:1px solid #ccc;" />
+          <button type="submit" style="padding:12px; border-radius:8px; background:#1f6f54; color:white; border:none; font-weight:600; font-size:16px;">Send OTP</button>
+        </form>
+
+        <form v-if="otpSent" @submit.prevent="handleVerify" style="display:flex; flex-direction:column; gap:12px; margin-top:12px;">
+          <input v-model="otp" type="text" placeholder="Enter OTP" required style="padding:12px; border-radius:8px; border:1px solid #ccc;" />
           <button type="submit" style="padding:12px; border-radius:8px; background:#1f6f54; color:white; border:none; font-weight:600; font-size:16px;">Verify & Login</button>
         </form>
-        <p style="margin-top:12px; font-size:13px; color:#777;">Email + Phone OTP verification for Admin / Staff / User roles</p>
+        <p style="margin-top:8px; font-size:13px; color:#777;">Admin uses password login via /login</p>
       </div>
     </div>
   </div>
@@ -36,22 +40,31 @@
 
 <script setup>
 import { ref } from 'vue'
+import { requestOtp, loginWithOtp } from '../../services/auth'
 const email = ref('')
 const phone = ref('')
 const otp = ref('')
+const otpSent = ref(false)
 const selectedRole = ref('user')
 const roles = [
   { label: 'Admin', value: 'admin' },
   { label: 'Staff', value: 'staff' },
   { label: 'User', value: 'user' }
 ]
-async function handleLogin() {
+async function handleOtpRequest() {
   try {
-    const { requestOtp } = await import('../../services/auth')
     await requestOtp(email.value)
-    alert('OTP sent to ' + email.value)
+    otpSent.value = true
   } catch (e) {
     alert('Failed to send OTP')
+  }
+}
+async function handleVerify() {
+  try {
+    const user = await loginWithOtp(email.value, otp.value)
+    window.location.href = '/' + (user.role || selectedRole.value) + '/dashboard'
+  } catch (e) {
+    alert('OTP verification failed')
   }
 }
 </script>
