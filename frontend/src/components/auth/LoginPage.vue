@@ -24,8 +24,4 @@ function handleLogin() {
     }).catch(e => alert('Login failed'))
   })
 }
-
-// Role picker added for multi-user login (Admin / Staff / User)
-// Use /register for new users — no OTP needed at registration.
-</script>
 </script>
