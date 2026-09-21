@@ -66,6 +66,8 @@
       </div>
     </div>
 
+    <BookItinerary />
+
     <div class="card">
       <h4 style="margin-top:0;">Recent Bookings</h4>
       <table>
@@ -90,6 +92,7 @@
 import { ref, onMounted, computed } from 'vue'
 import AppLayout from '../shared/AppLayout.vue'
 import api from '../../services/api'
+import BookItinerary from './BookItinerary.vue'
 
 const stats = ref({})
 const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']

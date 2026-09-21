@@ -6,6 +6,8 @@
       <div class="card stat"><div class="label">Ongoing Treks</div><div class="value">{{ data.ongoing_treks ?? '-' }}</div></div>
     </div>
 
+    <BookItinerary />
+
     <div class="card">
       <h4 style="margin-top:0;">My Assigned Treks</h4>
       <table>
@@ -30,6 +32,7 @@
 import { ref, onMounted } from 'vue'
 import AppLayout from '../shared/AppLayout.vue'
 import api from '../../services/api'
+import BookItinerary from './BookItinerary.vue'
 
 const data = ref({})
 onMounted(async () => { data.value = (await api.get('/staff/me/dashboard')).data })
